@@ -211,16 +211,16 @@ const QueryTodoApp = () => {
     updateMutation.mutate({ id, title: editValue, priority: editPriority });
   };
   return (
-    <Card className="w-full max-w-md mx-auto mt-10 shadow-xl border-t-4 border-t-primary overflow-hidden">
-      <CardHeader className="pb-4 border-b bg-slate-50/50">
-        <CardTitle className="text-2xl font-bold text-slate-800">
+    <Card className="w-full max-w-xl mx-auto mt-10 shadow-xl border-t-4 border-t-primary overflow-hidden">
+      <CardHeader className="pb-4 border-b bg-gray-200">
+        <CardTitle className="text-2xl font-bold text-slate-800 pt-6">
           Smart Tasks
         </CardTitle>
       </CardHeader>
 
-      <CardContent className="pt-6 space-y-4">
+      <CardContent className="space-y-4">
         {/* Search and Input Section */}
-        <div className="relative mb-2">
+        <div className="relative mb-4">
           <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
           <Input
             value={searchQuery}
@@ -308,7 +308,7 @@ const QueryTodoApp = () => {
             </div>
           </div>
         ) : (
-          <div className="max-h-95 overflow-y-auto pr-1">
+          <div className="max-h-75 overflow-y-auto pr-1">
             <ul className="space-y-3 pb-2">
               {[...filteredTodos].reverse().map((todo) => (
                 <li
