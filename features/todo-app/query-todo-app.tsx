@@ -205,6 +205,11 @@ const QueryTodoApp = () => {
       hour12: true, // AM/PM Formate
     });
   };
+
+  const handleUpdate = (id: number) => {
+    if (!editValue.trim()) return;
+    updateMutation.mutate({ id, title: editValue, priority: editPriority });
+  };
   return (
     <Card className="w-full max-w-md mx-auto mt-10 shadow-xl border-t-4 border-t-primary overflow-hidden">
       <CardHeader className="pb-4 border-b bg-slate-50/50">
@@ -336,6 +341,15 @@ const QueryTodoApp = () => {
                             onChange={(e) => setEditValue(e.target.value)}
                             className="h-8 bg-white"
                             autoFocus
+                            // Keyboard handler
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") {
+                                e.preventDefault();
+                                handleUpdate(todo.id);
+                              } else if (e.key === "Escape") {
+                                setEditingId(null);
+                              }
+                            }}
                           />
                         </div>
                         <div className="flex justify-end gap-1">
