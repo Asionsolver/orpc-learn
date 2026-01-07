@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { client } from "@/lib/orpc";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -210,6 +210,38 @@ const QueryTodoApp = () => {
     if (!editValue.trim()) return;
     updateMutation.mutate({ id, title: editValue, priority: editPriority });
   };
+
+  const filters: ("all" | "active" | "completed")[] = [
+    "all",
+    "active",
+    "completed",
+  ];
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      //To disable shortcuts when typing in the input box
+      const isTyping =
+        document.activeElement?.tagName === "INPUT" ||
+        document.activeElement?.tagName === "TEXTAREA" ||
+        (document.activeElement as HTMLElement)?.isContentEditable;
+
+      if (isTyping) return;
+
+      const currentIndex = filters.indexOf(filter);
+
+      if (e.key === "ArrowRight") {
+        const nextIndex = (currentIndex + 1) % filters.length;
+        setFilter(filters[nextIndex]);
+      } else if (e.key === "ArrowLeft") {
+        const nextIndex = (currentIndex - 1 + filters.length) % filters.length;
+        setFilter(filters[nextIndex]);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [filter]); // Logic will be updated if filter changes
+
   return (
     <Card className="w-full max-w-xl mx-auto mt-10 shadow-xl border-t-4 border-t-primary overflow-hidden pb-6">
       <CardHeader className="pb-4 border-b bg-gray-200">
