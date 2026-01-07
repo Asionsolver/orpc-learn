@@ -281,7 +281,7 @@ const QueryTodoApp = () => {
         </div>
 
         {/* List and Conditional Empty Message*/}
-        {true ? (
+        {isLoading ? (
           <Skeleton />
         ) : filteredTodos.length === 0 ? (
           <div className="text-center py-12 flex flex-col items-center justify-center border-2 border-dashed border-slate-100 rounded-xl">
