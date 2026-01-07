@@ -31,6 +31,7 @@ export const router = {
       };
 
       todos.push(newTodo);
+      return newTodo;
     }),
 
   // Updating Todo status (Toggle)
