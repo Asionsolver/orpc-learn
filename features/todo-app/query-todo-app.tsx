@@ -211,7 +211,7 @@ const QueryTodoApp = () => {
     updateMutation.mutate({ id, title: editValue, priority: editPriority });
   };
   return (
-    <Card className="w-full max-w-xl mx-auto mt-10 shadow-xl border-t-4 border-t-primary overflow-hidden">
+    <Card className="w-full max-w-xl mx-auto mt-10 shadow-xl border-t-4 border-t-primary overflow-hidden pb-6">
       <CardHeader className="pb-4 border-b bg-gray-200">
         <CardTitle className="text-2xl font-bold text-slate-800 pt-6">
           Smart Tasks
@@ -281,7 +281,7 @@ const QueryTodoApp = () => {
         </div>
 
         {/* List and Conditional Empty Message*/}
-        {isLoading ? (
+        {true ? (
           <Skeleton />
         ) : filteredTodos.length === 0 ? (
           <div className="text-center py-12 flex flex-col items-center justify-center border-2 border-dashed border-slate-100 rounded-xl">
@@ -308,7 +308,7 @@ const QueryTodoApp = () => {
             </div>
           </div>
         ) : (
-          <div className="max-h-75 overflow-y-auto pr-1">
+          <div className="max-h-95 overflow-y-auto pr-1">
             <ul className="space-y-3 pb-2">
               {[...filteredTodos].reverse().map((todo) => (
                 <li
