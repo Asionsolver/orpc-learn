@@ -79,34 +79,34 @@
     },
     "status": {
       "success": {
-        "primary": {
+        "main": {
           "value": "{color.lima.600}"
         },
-        "secondary": {
+        "subtle": {
           "value": "{color.lima.200}"
         }
       },
       "warning": {
-        "primary": {
+        "main": {
           "value": "{color.flushOrange.600}"
         },
-        "secondary": {
+        "subtle": {
           "value": "{color.flushOrange.200}"
         }
       },
       "error": {
-        "primary": {
+        "main": {
           "value": "{color.pomegranate.600}"
         },
-        "secondary": {
+        "subtle": {
           "value": "{color.pomegranate.200}"
         }
       },
       "info": {
-        "primary": {
+        "main": {
           "value": "{color.brightBlue.600}"
         },
-        "secondary": {
+        "subtle": {
           "value": "{color.brightBlue.200}"
         }
       }

@@ -40,10 +40,19 @@
   --color-primary-foreground: var(--semantic-surface-primary);
 
   /* --- Status Colors --- */
-  --color-success: var(--semantic-status-success-primary);
-  --color-warning: var(--semantic-status-warning-primary);
-  --color-error: var(--semantic-status-error-primary);
-  --color-info: var(--semantic-status-info-primary);
+  /* These will automatically toggle based on the theme */
+
+  --color-success: var(--status-success-main);
+  --color-success-subtle: var(--status-success-subtle);
+
+  --color-warning: var(--status-warning-main);
+  --color-warning-subtle: var(--status-warning-subtle);
+
+  --color-error: var(--status-error-main);
+  --color-error-subtle: var(--status-error-subtle);
+
+  --color-info: var(--status-info-main);
+  --color-info-subtle: var(--status-info-subtle);
 
   /* --- Base Tailwind Overrides --- */
   --color-background: var(--background);
@@ -72,8 +81,15 @@
   --border-primary: var(--theme-light-border-primary);
   --border-secondary: var(--theme-light-border-secondary);
 
-  /* Radius fallback for components like Shadcn */
-  --radius: 0.625rem;
+  /* Status Colors for Light Mode */
+  --status-success-main: var(--theme-light-status-success-main);
+  --status-success-subtle: var(--theme-light-status-success-subtle);
+  --status-warning-main: var(--theme-light-status-warning-main);
+  --status-warning-subtle: var(--theme-light-status-warning-subtle);
+  --status-error-main: var(--theme-light-status-error-main);
+  --status-error-subtle: var(--theme-light-status-error-subtle);
+  --status-info-main: var(--theme-light-status-info-main);
+  --status-info-subtle: var(--theme-light-status-info-subtle);
 }
 
 .dark {
@@ -92,13 +108,24 @@
 
   --border-primary: var(--theme-dark-border-primary);
   --border-secondary: var(--theme-dark-border-secondary);
+
+  /* Status Colors for Dark Mode */
+  --status-success-main: var(--theme-dark-status-success-main);
+  --status-success-subtle: var(--theme-dark-status-success-subtle);
+  --status-warning-main: var(--theme-dark-status-warning-main);
+  --status-warning-subtle: var(--theme-dark-status-warning-subtle);
+  --status-error-main: var(--theme-dark-status-error-main);
+  --status-error-subtle: var(--theme-dark-status-error-subtle);
+  --status-info-main: var(--theme-dark-status-info-main);
+  --status-info-subtle: var(--theme-dark-status-info-subtle);
 }
 
 @layer base {
   * {
     /* Apply global border color using mapped tokens */
-    @apply border-border;
+    @apply border-border-primary;
   }
+
   body {
     /* Set default background, text color, and font */
     @apply bg-background text-foreground font-sans;

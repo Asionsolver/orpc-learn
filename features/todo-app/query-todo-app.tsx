@@ -24,6 +24,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ModeToggle } from "./mode-toggle";
 type Priority = "high" | "medium" | "low";
 
 // First define the type of Context.
@@ -65,8 +66,8 @@ const QueryTodoApp = () => {
         filter === "all"
           ? true
           : filter === "active"
-          ? !todo.completed
-          : todo.completed;
+            ? !todo.completed
+            : todo.completed;
 
       // Search Task (Title Base)
       const matchesSearch = todo.title
@@ -244,21 +245,22 @@ const QueryTodoApp = () => {
 
   return (
     <Card className="w-full max-w-xl mx-auto mt-10 shadow-xl border-t-4 border-t-primary overflow-hidden pb-6">
-      <CardHeader className="pb-4 border-b bg-gray-200">
-        <CardTitle className="text-2xl font-bold text-slate-800 pt-6">
+      <CardHeader className="pb-4 border-b">
+        <CardTitle className="text-2xl font-bold text-text-primary pt-6">
           Smart Tasks
         </CardTitle>
+        <ModeToggle />
       </CardHeader>
 
       <CardContent className="space-y-4">
         {/* Search and Input Section */}
         <div className="relative mb-4">
-          <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
+          <Search className="absolute left-3 top-2.5 h-4 w-4 text-text-secondary" />
           <Input
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search tasks..."
-            className="pl-9 bg-slate-50/50 border-dashed"
+            className="pl-9 bg-surface-tertiary border-dashed border-border-secondary"
           />
         </div>
 
@@ -454,8 +456,8 @@ const QueryTodoApp = () => {
                           todo.priority === "high"
                             ? "bg-red-100 text-red-600 border-red-200"
                             : todo.priority === "medium"
-                            ? "bg-amber-100 text-amber-600 border-amber-200"
-                            : "bg-blue-100 text-blue-600 border-blue-200"
+                              ? "bg-amber-100 text-amber-600 border-amber-200"
+                              : "bg-blue-100 text-blue-600 border-blue-200"
                         }`}
                       >
                         {todo.priority}

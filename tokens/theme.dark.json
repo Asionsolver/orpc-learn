@@ -33,6 +33,40 @@
         "tertiary": {
           "value": "{color.grey.500}"
         }
+      },
+      "status": {
+        "error": {
+          "main": {
+            "value": "{color.pomegranate.600}"
+          },
+          "subtle": {
+            "value": "{color.pomegranate.200}"
+          }
+        },
+        "warning": {
+          "main": {
+            "value": "{color.flushOrange.600}"
+          },
+          "subtle": {
+            "value": "{color.flushOrange.200}"
+          }
+        },
+        "success": {
+          "main": {
+            "value": "{color.lima.600}"
+          },
+          "subtle": {
+            "value": "{color.lima.200}"
+          }
+        },
+        "info": {
+          "main": {
+            "value": "{color.brightBlue.600}"
+          },
+          "subtle": {
+            "value": "{color.brightBlue.200}"
+          }
+        }
       }
     }
   }
