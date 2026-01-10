@@ -2,112 +2,112 @@
   "semantic": {
     "surface": {
       "primary": {
-        "value": "{color.primitives.grey.25.value}"
+        "value": "{color.grey.25}"
       },
       "secondary": {
-        "value": "{color.primitives.grey.50.value}"
+        "value": "{color.grey.50}"
       },
       "tertiary": {
-        "value": "{color.primitives.grey.100.value}"
+        "value": "{color.grey.100}"
       }
     },
     "text": {
       "primary": {
-        "value": "{color.primitives.grey.800.value}"
+        "value": "{color.grey.800}"
       },
       "secondary": {
-        "value": "{color.primitives.grey.700.value}"
+        "value": "{color.grey.700}"
       },
       "tertiary": {
-        "value": "{color.primitives.grey.500.value}"
+        "value": "{color.grey.500}"
       }
     },
     "border": {
       "primary": {
-        "value": "{color.primitives.grey.200.value}"
+        "value": "{color.grey.200}"
       },
       "secondary": {
-        "value": "{color.primitives.grey.300.value}"
+        "value": "{color.grey.300}"
       },
       "tertiary": {
-        "value": "{color.primitives.grey.400.value}"
+        "value": "{color.grey.400}"
       }
     },
     "cta": {
       "primary": {
         "default": {
-          "value": "{color.primitives.brightBlue.500.value}"
+          "value": "{color.brightBlue.500}"
         },
         "hover": {
-          "value": "{color.primitives.brightBlue.600.value}"
+          "value": "{color.brightBlue.600}"
         },
         "focused": {
-          "value": "{color.primitives.brightBlue.700.value}"
+          "value": "{color.brightBlue.700}"
         },
         "disabled": {
-          "value": "{color.primitives.grey.400.value}"
+          "value": "{color.grey.400}"
         }
       },
       "secondary": {
         "default": {
-          "value": "{color.primitives.grey.200.value}"
+          "value": "{color.grey.200}"
         },
         "hover": {
-          "value": "{color.primitives.grey.600.value}"
+          "value": "{color.grey.600}"
         },
         "focused": {
-          "value": "{color.primitives.grey.700.value}"
+          "value": "{color.grey.700}"
         },
         "disabled": {
-          "value": "{color.primitives.grey.200.value}"
+          "value": "{color.grey.200}"
         }
       },
       "tertiary": {
         "default": {
-          "value": "{color.primitives.grey.400.value}"
+          "value": "{color.grey.400}"
         },
         "hover": {
-          "value": "{color.primitives.grey.500.value}"
+          "value": "{color.grey.500}"
         },
         "focused": {
-          "value": "{color.primitives.grey.600.value}"
+          "value": "{color.grey.600}"
         },
         "disabled": {
-          "value": "{color.primitives.grey.200.value}"
+          "value": "{color.grey.200}"
         }
       }
     },
     "status": {
       "success": {
         "primary": {
-          "value": "{color.primitives.green.600.value}"
+          "value": "{color.lima.600}"
         },
         "secondary": {
-          "value": "{color.primitives.green.200.value}"
+          "value": "{color.lima.200}"
         }
       },
       "warning": {
         "primary": {
-          "value": "{color.primitives.flushOrange.600.value}"
+          "value": "{color.flushOrange.600}"
         },
         "secondary": {
-          "value": "{color.primitives.flushOrange.200.value}"
+          "value": "{color.flushOrange.200}"
         }
       },
       "error": {
         "primary": {
-          "value": "{color.primitives.pomegranate.600.value}"
+          "value": "{color.pomegranate.600}"
         },
         "secondary": {
-          "value": "{color.primitives.pomegranate.200.value}"
+          "value": "{color.pomegranate.200}"
         }
       },
       "info": {
         "primary": {
-          "value": "{color.primitives.brightBlue.600.value}"
+          "value": "{color.brightBlue.600}"
         },
         "secondary": {
-          "value": "{color.primitives.brightBlue.200.value}"
+          "value": "{color.brightBlue.200}"
         }
       }
     }

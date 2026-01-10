@@ -1,0 +1,39 @@
+{
+  "theme": {
+    "light": {
+      "surface": {
+        "primary": {
+          "value": "{color.grey.25}"
+        },
+        "secondary": {
+          "value": "{color.grey.50}"
+        },
+        "tertiary": {
+          "value": "{color.grey.100}"
+        }
+      },
+      "text": {
+        "primary": {
+          "value": "{color.grey.900}"
+        },
+        "secondary": {
+          "value": "{color.grey.800}"
+        },
+        "tertiary": {
+          "value": "{color.grey.700}"
+        }
+      },
+      "border": {
+        "primary": {
+          "value": "{color.grey.300}"
+        },
+        "secondary": {
+          "value": "{color.grey.400}"
+        },
+        "tertiary": {
+          "value": "{color.grey.500}"
+        }
+      }
+    }
+  }
+}
