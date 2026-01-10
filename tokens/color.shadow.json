@@ -1,0 +1,9 @@
+{
+  "color": {
+    "shadow": {
+      "primary": {
+        "value": "rgba(19, 72, 103, 0.1)"
+      }
+    }
+  }
+}
