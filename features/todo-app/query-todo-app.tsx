@@ -80,9 +80,9 @@ const QueryTodoApp = () => {
 
   // Defining colors according to priority
   const priorityColors = {
-    high: "border-l-4 border-l-red-500 bg-red-50/30",
-    medium: "border-l-4 border-l-amber-500 bg-amber-50/30",
-    low: "border-l-4 border-l-blue-500 bg-blue-50/30",
+    high: "border-l-4 border-l-error bg-surface-secondary",
+    medium: "border-l-4 border-l-warning bg-surface-secondary",
+    low: "border-l-4 border-l-info bg-surface-secondary",
   };
 
   // ADD Mutation
@@ -273,7 +273,7 @@ const QueryTodoApp = () => {
               <SelectTrigger className="w-25 text-xs">
                 <SelectValue placeholder="Priority" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-surface-secondary">
                 <SelectItem value="low">Low</SelectItem>
                 <SelectItem value="medium">Med</SelectItem>
                 <SelectItem value="high">High</SelectItem>
@@ -286,27 +286,27 @@ const QueryTodoApp = () => {
                 if (inputError) setInputError(null);
               }}
               placeholder="Add a new task..."
-              className={inputError ? "border-red-500" : "bg-slate-50"}
+              className={inputError ? "border-error" : "bg-surface-secondary"}
             />
             <Button type="submit">Add</Button>
           </div>
           {inputError && (
-            <p className="text-[10px] text-red-500 font-medium ml-1">
+            <p className="text-[10px] text-error font-medium ml-1">
               {inputError}
             </p>
           )}
         </form>
 
         {/* Filter Tab */}
-        <div className="flex gap-1 p-1 bg-slate-100 rounded-lg">
+        <div className="flex gap-1 p-1 bg-surface-tertiary rounded-lg">
           {(["all", "active", "completed"] as const).map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`flex-1 py-1 text-xs font-medium rounded-md transition-all ${
+              className={`flex-1 py-1 text-xs font-medium rounded-xl transition-all ${
                 filter === f
-                  ? "bg-white shadow text-primary"
-                  : "text-slate-500 hover:text-slate-700"
+                  ? "bg-surface-secondary shadow text-primary"
+                  : "text-text-secondary hover:text-text-primary"
               }`}
             >
               {f.charAt(0).toUpperCase() + f.slice(1)}
@@ -364,7 +364,7 @@ const QueryTodoApp = () => {
                             <SelectTrigger className="w-22.5 h-8 text-[10px]">
                               <SelectValue />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent className="bg-surface-secondary">
                               <SelectItem value="low">Low</SelectItem>
                               <SelectItem value="medium">Med</SelectItem>
                               <SelectItem value="high">High</SelectItem>
@@ -373,7 +373,7 @@ const QueryTodoApp = () => {
                           <Input
                             value={editValue}
                             onChange={(e) => setEditValue(e.target.value)}
-                            className="h-8 bg-white"
+                            className="h-8 bg-surface-secondary "
                             autoFocus
                             // Keyboard handler
                             onKeyDown={(e) => {
@@ -390,7 +390,7 @@ const QueryTodoApp = () => {
                           <Button
                             size="sm"
                             variant="ghost"
-                            className="h-7 text-green-600"
+                            className="h-7 text-success"
                             onClick={() =>
                               updateMutation.mutate({
                                 id: todo.id,
@@ -404,7 +404,7 @@ const QueryTodoApp = () => {
                           <Button
                             size="sm"
                             variant="ghost"
-                            className="h-7 text-red-600"
+                            className="h-7 text-error"
                             onClick={() => setEditingId(null)}
                           >
                             <X className="w-4 h-4" /> Cancel
@@ -427,8 +427,8 @@ const QueryTodoApp = () => {
                         <span
                           className={`flex-1 text-sm cursor-pointer ${
                             todo.completed
-                              ? "line-through text-slate-400"
-                              : "font-medium text-slate-700"
+                              ? "line-through text-text-tertiary"
+                              : "font-medium text-text-primary"
                           }`}
                         >
                           {todo.title}
@@ -445,7 +445,7 @@ const QueryTodoApp = () => {
                     )}
                   </div>
 
-                  <div className="mt-2 flex items-center justify-between text-[9px] text-slate-400 border-t border-slate-200/50 pt-2">
+                  <div className="mt-2 flex items-center justify-between text-[9px] text-text-primary border-t border-border-secondary pt-2">
                     <div className="flex items-center gap-2">
                       <div className="flex items-center gap-1">
                         <Clock className="w-2.5 h-2.5" />
@@ -454,17 +454,17 @@ const QueryTodoApp = () => {
                       <span
                         className={`px-1.5 py-0.5 rounded-full text-[8px] uppercase font-bold border ${
                           todo.priority === "high"
-                            ? "bg-red-100 text-red-600 border-red-200"
+                            ? "bg-error-subtle text-error border-none"
                             : todo.priority === "medium"
-                              ? "bg-amber-100 text-amber-600 border-amber-200"
-                              : "bg-blue-100 text-blue-600 border-blue-200"
+                              ? "bg-warning-subtle text-warning border-none"
+                              : "bg-info-subtle text-info border-none"
                         }`}
                       >
                         {todo.priority}
                       </span>
                     </div>
                     {todo.updatedAt && (
-                      <div className="flex items-center gap-1 text-blue-500">
+                      <div className="flex items-center gap-1 text-text-primary">
                         <Check className="w-2.5 h-2.5" />
                         <span>Updated: {formatDateTime(todo.updatedAt)}</span>
                       </div>
