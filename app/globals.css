@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
 @import "../tokens/tokens.css";
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -7,56 +9,49 @@
 
 @theme inline {
   /* --- Typography Mapping --- */
-  --font-sans: var(--typography-font-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
 
   /* --- Typography: Font Weights --- */
-  --font-weight-regular: var(--typography-weight-regular);
-  --font-weight-medium: var(--typography-weight-medium);
-  --font-weight-semibold: var(--typography-weight-semibold);
-  --font-weight-bold: var(--typography-weight-bold);
+  --font-weight-regular: var(--weight-regular);
+  --font-weight-medium: var(--weight-medium);
+  --font-weight-semibold: var(--weight-semibold);
+  --font-weight-bold: var(--weight-bold);
 
   /* --- Typography: Font Sizes & Line Heights --- */
   /* Mapping standard Tailwind text sizes to design tokens */
-  --text-xs: var(--typography-text-xs-font-size);
-  --text-xs--line-height: var(--typography-text-xs-line-height);
+  --text-xs: var(--text-xs-font-size);
+  --leading-text-xs: var(--text-xs-line-height);
 
-  --text-sm: var(--typography-text-sm-font-size);
-  --text-sm--line-height: var(--typography-text-sm-line-height);
+  --text-sm: var(--text-sm-font-size);
+  --leading-text-sm: var(--text-sm-line-height);
 
-  --text-base: var(--typography-text-md-font-size);
-  --text-base--line-height: var(--typography-text-md-line-height);
+  --text-md: var(--text-md-font-size);
+  --leading-text-md: var(--text-md-line-height);
 
-  --text-lg: var(--typography-text-lg-font-size);
-  --text-lg--line-height: var(--typography-text-lg-line-height);
+  --text-lg: var(--text-lg-font-size);
+  --leading-text-lg: var(--text-lg-line-height);
 
-  --text-xl: var(--typography-text-xl-font-size);
-  --text-xl--line-height: var(--typography-text-xl-line-height);
+  --text-xl: var(--text-xl-font-size);
+  --leading-text-xl: var(--text-xl-line-height);
 
   /* --- Typography: Custom Heading Utilities --- */
-  --text-h1: var(--typography-heading-h1-font-size);
-  --text-h1--line-height: var(--typography-heading-h1-line-height);
-  --text-h1--font-weight: var(--typography-heading-h1-font-weight);
+  --text-h1: var(--heading-h1-font-size);
+  --leading-h1: var(--heading-h1-line-height);
 
-  --text-h2: var(--typography-heading-h2-font-size);
-  --text-h2--line-height: var(--typography-heading-h2-line-height);
-  --text-h2--font-weight: var(--typography-heading-h2-font-weight);
+  --text-h2: var(--heading-h2-font-size);
+  --leading-h2: var(--heading-h2-line-height);
 
-  --text-h3: var(--typography-heading-h3-font-size);
-  --text-h3--line-height: var(--typography-heading-h3-line-height);
-  --text-h3--font-weight: var(--typography-heading-h3-font-weight);
+  --text-h3: var(--heading-h3-font-size);
+  --leading-h3: var(--heading-h3-line-height);
 
-  --text-h4: var(--typography-heading-h4-font-size);
-  --text-h4--line-height: var(--typography-heading-h4-line-height);
-  --text-h4--font-weight: var(--typography-heading-h4-font-weight);
+  --text-h4: var(--heading-h4-font-size);
+  --leading-h4: var(--heading-h4-line-height);
 
-  --text-h5: var(--typography-heading-h5-font-size);
-  --text-h5--line-height: var(--typography-heading-h5-line-height);
-  --text-h5--font-weight: var(--typography-heading-h5-font-weight);
+  --text-h5: var(--heading-h5-font-size);
+  --leading-h5: var(--heading-h5-line-height);
 
-  --text-h6: var(--typography-heading-h6-font-size);
-  --text-h6--line-height: var(--typography-heading-h6-line-height);
-  --text-h6--font-weight: var(--typography-heading-h6-font-weight);
+  --text-h6: var(--heading-h6-font-size);
+  --leading-h6: var(--heading-h6-line-height);
 
   /* --- Border Radius Mapping --- */
   --radius-sm: var(--radius-sm);
@@ -171,5 +166,15 @@
   body {
     /* Set default background, text color, and font */
     @apply bg-background text-foreground font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
   }
 }

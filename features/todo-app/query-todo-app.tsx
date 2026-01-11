@@ -25,6 +25,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ModeToggle } from "./mode-toggle";
+import { Heading } from "@/components/typography/heading";
 type Priority = "high" | "medium" | "low";
 
 // First define the type of Context.
@@ -244,241 +245,245 @@ const QueryTodoApp = () => {
   }, [filter]); // Logic will be updated if filter changes
 
   return (
-    <Card className="w-full max-w-xl mx-auto mt-10 shadow-xl border-t-4 border-t-primary overflow-hidden pb-6 ">
-      <CardHeader className="pb-4 border-b">
-        <div className="flex items-center pt-6 justify-between">
-          <CardTitle className="text-2xl font-bold text-text-primary ">
-            Smart Tasks
-          </CardTitle>
-          <ModeToggle />
-        </div>
-      </CardHeader>
+    <>
+      <Card className="w-full max-w-xl mx-auto mt-10 shadow-xl border-t-4 border-t-primary overflow-hidden pb-6 ">
+        <CardHeader className="pb-4 border-b">
+          <div className="flex items-center pt-6 justify-between">
+            <Heading as={"h1"} weight={"regular"}>
+              Smart Tasks
+            </Heading>
+            <ModeToggle />
+          </div>
+        </CardHeader>
 
-      <CardContent className="space-y-4">
-        {/* Search and Input Section */}
-        <div className="relative mb-4">
-          <Search className="absolute left-3 top-2.5 h-4 w-4 text-text-secondary" />
-          <Input
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search tasks..."
-            className="pl-9 bg-surface-tertiary border-dashed border-border-secondary"
-          />
-        </div>
-
-        <form onSubmit={handleSubmit} className="space-y-3">
-          <div className="flex gap-2">
-            <Select
-              value={selectedPriority}
-              onValueChange={(value: Priority) => setSelectedPriority(value)}
-            >
-              <SelectTrigger className="w-25 text-xs">
-                <SelectValue placeholder="Priority" />
-              </SelectTrigger>
-              <SelectContent className="bg-surface-secondary">
-                <SelectItem value="low">Low</SelectItem>
-                <SelectItem value="medium">Med</SelectItem>
-                <SelectItem value="high">High</SelectItem>
-              </SelectContent>
-            </Select>
+        <CardContent className="space-y-4">
+          {/* Search and Input Section */}
+          <div className="relative mb-4">
+            <Search className="absolute left-3 top-2.5 h-4 w-4 text-text-secondary" />
             <Input
-              value={newTitle}
-              onChange={(e) => {
-                setNewTitle(e.target.value);
-                if (inputError) setInputError(null);
-              }}
-              placeholder="Add a new task..."
-              className={inputError ? "border-error" : "bg-surface-secondary"}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search tasks..."
+              className="pl-9 bg-surface-tertiary border-dashed border-border-secondary"
             />
-            <Button type="submit">Add</Button>
           </div>
-          {inputError && (
-            <p className="text-[10px] text-error font-medium ml-1">
-              {inputError}
-            </p>
-          )}
-        </form>
 
-        {/* Filter Tab */}
-        <div className="flex gap-1 p-1 bg-surface-tertiary rounded-lg">
-          {(["all", "active", "completed"] as const).map((f) => (
-            <button
-              key={f}
-              onClick={() => setFilter(f)}
-              className={`flex-1 py-1 text-xs font-medium rounded-xl transition-all ${
-                filter === f
-                  ? "bg-surface-secondary shadow text-primary"
-                  : "text-text-secondary hover:text-text-primary"
-              }`}
-            >
-              {f.charAt(0).toUpperCase() + f.slice(1)}
-            </button>
-          ))}
-        </div>
-
-        {/* List and Conditional Empty Message*/}
-        {isLoading ? (
-          <Skeleton />
-        ) : filteredTodos.length === 0 ? (
-          <div className="text-center py-12 flex flex-col items-center justify-center border-2 border-dashed border-slate-100 rounded-xl">
-            <ClipboardList className="w-12 h-12 mb-3 text-slate-200" />
-            <div className="text-slate-500 text-sm">
-              {searchQuery ? (
-                <p>
-                  No results found for &quot;
-                  <span className="font-semibold">{searchQuery}</span>&quot;
-                </p>
-              ) : (
-                <>
-                  {filter === "all" && (
-                    <p>Your task list is empty. Start by adding one!</p>
-                  )}
-                  {filter === "active" && (
-                    <p>All caught up! No pending tasks found.</p>
-                  )}
-                  {filter === "completed" && (
-                    <p>No completed tasks yet. Keep going!</p>
-                  )}
-                </>
-              )}
+          <form onSubmit={handleSubmit} className="space-y-3">
+            <div className="flex gap-2">
+              <Select
+                value={selectedPriority}
+                onValueChange={(value: Priority) => setSelectedPriority(value)}
+              >
+                <SelectTrigger className="w-25 text-xs">
+                  <SelectValue placeholder="Priority" />
+                </SelectTrigger>
+                <SelectContent className="bg-surface-secondary">
+                  <SelectItem value="low">Low</SelectItem>
+                  <SelectItem value="medium">Med</SelectItem>
+                  <SelectItem value="high">High</SelectItem>
+                </SelectContent>
+              </Select>
+              <Input
+                value={newTitle}
+                onChange={(e) => {
+                  setNewTitle(e.target.value);
+                  if (inputError) setInputError(null);
+                }}
+                placeholder="Add a new task..."
+                className={inputError ? "border-error" : "bg-surface-secondary"}
+              />
+              <Button type="submit">Add</Button>
             </div>
+            {inputError && (
+              <p className="text-[10px] text-error font-medium ml-1">
+                {inputError}
+              </p>
+            )}
+          </form>
+
+          {/* Filter Tab */}
+          <div className="flex gap-1 p-1 bg-surface-tertiary rounded-lg">
+            {(["all", "active", "completed"] as const).map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={`flex-1 py-1 text-xs font-medium rounded-xl transition-all ${
+                  filter === f
+                    ? "bg-surface-secondary shadow text-primary"
+                    : "text-text-secondary hover:text-text-primary"
+                }`}
+              >
+                {f.charAt(0).toUpperCase() + f.slice(1)}
+              </button>
+            ))}
           </div>
-        ) : (
-          <div className="max-h-95 overflow-y-auto pr-1">
-            <ul className="space-y-3 pb-2">
-              {[...filteredTodos].reverse().map((todo) => (
-                <li
-                  key={todo.id}
-                  className={`group rounded-lg p-3 transition-all shadow-sm border ${
-                    priorityColors[todo.priority]
-                  }`}
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    {editingId === todo.id ? (
-                      <div className="flex flex-col gap-2 flex-1">
-                        <div className="flex items-center gap-2">
-                          <Select
-                            value={editPriority}
-                            onValueChange={(value: Priority) =>
-                              setEditPriority(value)
-                            }
-                          >
-                            <SelectTrigger className="w-22.5 h-8 text-[10px]">
-                              <SelectValue />
-                            </SelectTrigger>
-                            <SelectContent className="bg-surface-secondary">
-                              <SelectItem value="low">Low</SelectItem>
-                              <SelectItem value="medium">Med</SelectItem>
-                              <SelectItem value="high">High</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <Input
-                            value={editValue}
-                            onChange={(e) => setEditValue(e.target.value)}
-                            className="h-8 bg-surface-secondary "
-                            autoFocus
-                            // Keyboard handler
-                            onKeyDown={(e) => {
-                              if (e.key === "Enter") {
-                                e.preventDefault();
-                                handleUpdate(todo.id);
-                              } else if (e.key === "Escape") {
-                                setEditingId(null);
+
+          {/* List and Conditional Empty Message*/}
+          {isLoading ? (
+            <Skeleton />
+          ) : filteredTodos.length === 0 ? (
+            <div className="text-center py-12 flex flex-col items-center justify-center border-2 border-dashed border-slate-100 rounded-xl">
+              <ClipboardList className="w-12 h-12 mb-3 text-slate-200" />
+              <div className="text-slate-500 text-sm">
+                {searchQuery ? (
+                  <p>
+                    No results found for &quot;
+                    <span className="font-semibold">{searchQuery}</span>&quot;
+                  </p>
+                ) : (
+                  <>
+                    {filter === "all" && (
+                      <p>Your task list is empty. Start by adding one!</p>
+                    )}
+                    {filter === "active" && (
+                      <p>All caught up! No pending tasks found.</p>
+                    )}
+                    {filter === "completed" && (
+                      <p>No completed tasks yet. Keep going!</p>
+                    )}
+                  </>
+                )}
+              </div>
+            </div>
+          ) : (
+            <div className="max-h-95 overflow-y-auto pr-1">
+              <ul className="space-y-3 pb-2">
+                {[...filteredTodos].reverse().map((todo) => (
+                  <li
+                    key={todo.id}
+                    className={`group rounded-lg p-3 transition-all shadow-sm border ${
+                      priorityColors[todo.priority]
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      {editingId === todo.id ? (
+                        <div className="flex flex-col gap-2 flex-1">
+                          <div className="flex items-center gap-2">
+                            <Select
+                              value={editPriority}
+                              onValueChange={(value: Priority) =>
+                                setEditPriority(value)
                               }
-                            }}
-                          />
+                            >
+                              <SelectTrigger className="w-22.5 h-8 text-[10px]">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent className="bg-surface-secondary">
+                                <SelectItem value="low">Low</SelectItem>
+                                <SelectItem value="medium">Med</SelectItem>
+                                <SelectItem value="high">High</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <Input
+                              value={editValue}
+                              onChange={(e) => setEditValue(e.target.value)}
+                              className="h-8 bg-surface-secondary "
+                              autoFocus
+                              // Keyboard handler
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                  e.preventDefault();
+                                  handleUpdate(todo.id);
+                                } else if (e.key === "Escape") {
+                                  setEditingId(null);
+                                }
+                              }}
+                            />
+                          </div>
+                          <div className="flex justify-end gap-1">
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              className="h-7 text-success"
+                              onClick={() =>
+                                updateMutation.mutate({
+                                  id: todo.id,
+                                  title: editValue,
+                                  priority: editPriority,
+                                })
+                              }
+                            >
+                              <Check className="w-4 h-4" /> Save
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              className="h-7 text-error"
+                              onClick={() => setEditingId(null)}
+                            >
+                              <X className="w-4 h-4" /> Cancel
+                            </Button>
+                          </div>
                         </div>
-                        <div className="flex justify-end gap-1">
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            className="h-7 text-success"
-                            onClick={() =>
-                              updateMutation.mutate({
-                                id: todo.id,
-                                title: editValue,
-                                priority: editPriority,
-                              })
+                      ) : (
+                        <div
+                          className="flex items-center gap-3 flex-1"
+                          onDoubleClick={() => {
+                            setEditingId(todo.id);
+                            setEditValue(todo.title);
+                            setEditPriority(todo.priority);
+                          }}
+                        >
+                          <Checkbox
+                            checked={todo.completed}
+                            onCheckedChange={() =>
+                              toggleMutation.mutate(todo.id)
                             }
+                          />
+                          <span
+                            className={`flex-1 text-sm cursor-pointer ${
+                              todo.completed
+                                ? "line-through text-text-tertiary"
+                                : "font-medium text-text-primary"
+                            }`}
                           >
-                            <Check className="w-4 h-4" /> Save
-                          </Button>
+                            {todo.title}
+                          </span>
                           <Button
-                            size="sm"
                             variant="ghost"
-                            className="h-7 text-error"
-                            onClick={() => setEditingId(null)}
+                            size="icon"
+                            className="h-7 w-7 opacity-0 group-hover:opacity-100 text-destructive"
+                            onClick={() => deleteMutation.mutate(todo.id)}
                           >
-                            <X className="w-4 h-4" /> Cancel
+                            <Trash2 className="w-4 h-4" />
                           </Button>
                         </div>
-                      </div>
-                    ) : (
-                      <div
-                        className="flex items-center gap-3 flex-1"
-                        onDoubleClick={() => {
-                          setEditingId(todo.id);
-                          setEditValue(todo.title);
-                          setEditPriority(todo.priority);
-                        }}
-                      >
-                        <Checkbox
-                          checked={todo.completed}
-                          onCheckedChange={() => toggleMutation.mutate(todo.id)}
-                        />
+                      )}
+                    </div>
+
+                    <div className="mt-2 flex items-center justify-between text-[9px] text-text-primary border-t border-border-secondary pt-2">
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-2.5 h-2.5" />
+                          <span>{formatDateTime(todo.createdAt)}</span>
+                        </div>
                         <span
-                          className={`flex-1 text-sm cursor-pointer ${
-                            todo.completed
-                              ? "line-through text-text-tertiary"
-                              : "font-medium text-text-primary"
+                          className={`px-1.5 py-0.5 rounded-full text-[8px] uppercase font-bold border ${
+                            todo.priority === "high"
+                              ? "bg-error-subtle text-error border-none"
+                              : todo.priority === "medium"
+                                ? "bg-warning-subtle text-warning border-none"
+                                : "bg-info-subtle text-info border-none"
                           }`}
                         >
-                          {todo.title}
+                          {todo.priority}
                         </span>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="h-7 w-7 opacity-0 group-hover:opacity-100 text-destructive"
-                          onClick={() => deleteMutation.mutate(todo.id)}
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
                       </div>
-                    )}
-                  </div>
-
-                  <div className="mt-2 flex items-center justify-between text-[9px] text-text-primary border-t border-border-secondary pt-2">
-                    <div className="flex items-center gap-2">
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-2.5 h-2.5" />
-                        <span>{formatDateTime(todo.createdAt)}</span>
-                      </div>
-                      <span
-                        className={`px-1.5 py-0.5 rounded-full text-[8px] uppercase font-bold border ${
-                          todo.priority === "high"
-                            ? "bg-error-subtle text-error border-none"
-                            : todo.priority === "medium"
-                              ? "bg-warning-subtle text-warning border-none"
-                              : "bg-info-subtle text-info border-none"
-                        }`}
-                      >
-                        {todo.priority}
-                      </span>
+                      {todo.updatedAt && (
+                        <div className="flex items-center gap-1 text-text-primary">
+                          <Check className="w-2.5 h-2.5" />
+                          <span>Updated: {formatDateTime(todo.updatedAt)}</span>
+                        </div>
+                      )}
                     </div>
-                    {todo.updatedAt && (
-                      <div className="flex items-center gap-1 text-text-primary">
-                        <Check className="w-2.5 h-2.5" />
-                        <span>Updated: {formatDateTime(todo.updatedAt)}</span>
-                      </div>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </CardContent>
-    </Card>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </>
   );
 };
 
