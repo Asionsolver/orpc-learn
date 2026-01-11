@@ -10,11 +10,53 @@
   --font-sans: var(--typography-font-sans);
   --font-mono: var(--font-geist-mono);
 
-  --text-xl: var(--typography-text-xl-font-size);
-  --text-lg: var(--typography-text-lg-font-size);
-  --text-md: var(--typography-text-md-font-size);
-  --text-sm: var(--typography-text-sm-font-size);
+  /* --- Typography: Font Weights --- */
+  --font-weight-regular: var(--typography-weight-regular);
+  --font-weight-medium: var(--typography-weight-medium);
+  --font-weight-semibold: var(--typography-weight-semibold);
+  --font-weight-bold: var(--typography-weight-bold);
+
+  /* --- Typography: Font Sizes & Line Heights --- */
+  /* Mapping standard Tailwind text sizes to design tokens */
   --text-xs: var(--typography-text-xs-font-size);
+  --text-xs--line-height: var(--typography-text-xs-line-height);
+
+  --text-sm: var(--typography-text-sm-font-size);
+  --text-sm--line-height: var(--typography-text-sm-line-height);
+
+  --text-base: var(--typography-text-md-font-size);
+  --text-base--line-height: var(--typography-text-md-line-height);
+
+  --text-lg: var(--typography-text-lg-font-size);
+  --text-lg--line-height: var(--typography-text-lg-line-height);
+
+  --text-xl: var(--typography-text-xl-font-size);
+  --text-xl--line-height: var(--typography-text-xl-line-height);
+
+  /* --- Typography: Custom Heading Utilities --- */
+  --text-h1: var(--typography-heading-h1-font-size);
+  --text-h1--line-height: var(--typography-heading-h1-line-height);
+  --text-h1--font-weight: var(--typography-heading-h1-font-weight);
+
+  --text-h2: var(--typography-heading-h2-font-size);
+  --text-h2--line-height: var(--typography-heading-h2-line-height);
+  --text-h2--font-weight: var(--typography-heading-h2-font-weight);
+
+  --text-h3: var(--typography-heading-h3-font-size);
+  --text-h3--line-height: var(--typography-heading-h3-line-height);
+  --text-h3--font-weight: var(--typography-heading-h3-font-weight);
+
+  --text-h4: var(--typography-heading-h4-font-size);
+  --text-h4--line-height: var(--typography-heading-h4-line-height);
+  --text-h4--font-weight: var(--typography-heading-h4-font-weight);
+
+  --text-h5: var(--typography-heading-h5-font-size);
+  --text-h5--line-height: var(--typography-heading-h5-line-height);
+  --text-h5--font-weight: var(--typography-heading-h5-font-weight);
+
+  --text-h6: var(--typography-heading-h6-font-size);
+  --text-h6--line-height: var(--typography-heading-h6-line-height);
+  --text-h6--font-weight: var(--typography-heading-h6-font-weight);
 
   /* --- Border Radius Mapping --- */
   --radius-sm: var(--radius-sm);

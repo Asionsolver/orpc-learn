@@ -244,7 +244,7 @@ const QueryTodoApp = () => {
   }, [filter]); // Logic will be updated if filter changes
 
   return (
-    <Card className="w-full max-w-xl mx-auto mt-10 shadow-xl border-t-4 border-t-primary overflow-hidden pb-6">
+    <Card className="w-full max-w-xl mx-auto mt-10 shadow-xl border-t-4 border-t-primary overflow-hidden pb-6 ">
       <CardHeader className="pb-4 border-b">
         <CardTitle className="text-2xl font-bold text-text-primary pt-6">
           Smart Tasks
