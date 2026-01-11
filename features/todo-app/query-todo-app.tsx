@@ -246,10 +246,12 @@ const QueryTodoApp = () => {
   return (
     <Card className="w-full max-w-xl mx-auto mt-10 shadow-xl border-t-4 border-t-primary overflow-hidden pb-6 ">
       <CardHeader className="pb-4 border-b">
-        <CardTitle className="text-2xl font-bold text-text-primary pt-6">
-          Smart Tasks
-        </CardTitle>
-        <ModeToggle />
+        <div className="flex items-center pt-6 justify-between">
+          <CardTitle className="text-2xl font-bold text-text-primary ">
+            Smart Tasks
+          </CardTitle>
+          <ModeToggle />
+        </div>
       </CardHeader>
 
       <CardContent className="space-y-4">
